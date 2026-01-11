@@ -1,0 +1,16 @@
+{
+  "name": "opencode-mem0",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "description": "Mem0 long-term memory plugin for OpenCode - persistent context across sessions",
+  "license": "MIT",
+  "dependencies": {
+    "@opencode-ai/plugin": "latest",
+    "mem0ai": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "bun-types": "latest"
+  }
+}
