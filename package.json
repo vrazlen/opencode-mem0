@@ -12,5 +12,8 @@
   "devDependencies": {
     "typescript": "^5.0.0",
     "bun-types": "latest"
-  }
+  },
+  "trustedDependencies": [
+    "core-js"
+  ]
 }

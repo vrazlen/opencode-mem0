@@ -70,6 +70,13 @@ export class Mem0Service {
     }
   }
 
+  private getScopeParams(scope: MemoryScope): { user_id?: string; agent_id?: string } {
+    if (scope === "user") {
+      return { user_id: this.userId }
+    }
+    return { agent_id: this.projectId }
+  }
+
   private normalizeResults(response: unknown): MemoryItem[] {
     if (Array.isArray(response)) {
       return response as MemoryItem[]
@@ -94,7 +101,7 @@ export class Mem0Service {
         return { ok: false, error: "Timeout or API error" }
       }
       
-      const id = (result as any).results?.[0]?.id || (result as any).id || (Array.isArray(result) ? result[0]?.event_id : undefined)
+      const id = (result as any).results?.[0]?.id || (result as any).id || (Array.isArray(result) ? (result[0] as any)?.event_id : undefined)
       return { ok: true, id }
     } catch (error) {
       return { ok: false, error: error instanceof Error ? error.message : "Unknown error" }
